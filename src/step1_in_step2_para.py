@@ -76,7 +76,7 @@ def main_process(args):
     auto_csv_path = os.path.join(auto_dir,'step1.csv')
     if not os.path.exists(auto_csv_path):        
         df_E_init = pd.DataFrame(columns = ['a','b','theta','R3','R4','E','E_p','E_t1','Et2','machine_type','status','file_name'])##隣接6分子 長軸がずれた系での面内構造最適化
-    df_E_init.to_csv(auto_csv_path,index=False)
+        df_E_init.to_csv(auto_csv_path,index=False)
 
     os.chdir(os.path.join(args.auto_dir,'gaussian'))
     isOver = False
