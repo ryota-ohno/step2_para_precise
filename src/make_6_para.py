@@ -183,8 +183,8 @@ def make_gjf_xyz(auto_dir,monomer_name,params_dict,isInterlayer):
         monomer_array_ip2 = get_monomer_xyzR(monomer_name,c[0],c[1]-b_,c[2]-R4,0,0,A3, phi1)
     else:
         monomer_array_p1 = get_monomer_xyzR(monomer_name,a_,0,2*R3-R4,0,0,A3, phi1)##p2がa方向
-        monomer_array_ip3 = get_monomer_xyzR(monomer_name,c[0]+a_,c[1],c[2]+2*R3-R4,0,0,A3, phi1)
-        monomer_array_ip4 = get_monomer_xyzR(monomer_name,c[0]-a_,c[1],c[2]-(2*R3-R4),0,0,A3, phi1)
+        monomer_array_ip1 = get_monomer_xyzR(monomer_name,c[0]+a_,c[1],c[2]+2*R3-R4,0,0,A3, phi1)
+        monomer_array_ip2 = get_monomer_xyzR(monomer_name,c[0]-a_,c[1],c[2]-(2*R3-R4),0,0,A3, phi1)
     
     monomer_array_i0 = get_monomer_xyzR(monomer_name,c[0],c[1],c[2],0,0,A3, phi1)
     monomer_array_t1 = get_monomer_xyzR(monomer_name,a_/2,b_/2,R3,0,0,-A3, phi2)
@@ -203,15 +203,15 @@ def make_gjf_xyz(auto_dir,monomer_name,params_dict,isInterlayer):
     dimer_array_t4 = np.concatenate([monomer_array_i,monomer_array_t4])
     dimer_array_p1 = np.concatenate([monomer_array_i,monomer_array_p1])
     #dimer_array_p2 = np.concatenate([monomer_array_i,monomer_array_p2])
-    dimer_array_i0 = np.concatenate([monomer_array_i,monomer_array_i0])
-    dimer_array_it1 = np.concatenate([monomer_array_i,monomer_array_it1])
-    dimer_array_it2 = np.concatenate([monomer_array_i,monomer_array_it2])
-    dimer_array_it3 = np.concatenate([monomer_array_i,monomer_array_it3])
-    dimer_array_it4 = np.concatenate([monomer_array_i,monomer_array_it4])
-    dimer_array_ip1 = np.concatenate([monomer_array_i,monomer_array_ip1])
-    dimer_array_ip2 = np.concatenate([monomer_array_i,monomer_array_ip2])
-    dimer_array_ip3 = np.concatenate([monomer_array_i,monomer_array_ip3])
-    dimer_array_ip4 = np.concatenate([monomer_array_i,monomer_array_ip4])
+    #dimer_array_i0 = np.concatenate([monomer_array_i,monomer_array_i0])
+    #dimer_array_it1 = np.concatenate([monomer_array_i,monomer_array_it1])
+    #dimer_array_it2 = np.concatenate([monomer_array_i,monomer_array_it2])
+    #dimer_array_it3 = np.concatenate([monomer_array_i,monomer_array_it3])
+    #dimer_array_it4 = np.concatenate([monomer_array_i,monomer_array_it4])
+    #dimer_array_ip1 = np.concatenate([monomer_array_i,monomer_array_ip1])
+    #dimer_array_ip2 = np.concatenate([monomer_array_i,monomer_array_ip2])
+    #dimer_array_ip3 = np.concatenate([monomer_array_i,monomer_array_ip3])
+    #dimer_array_ip4 = np.concatenate([monomer_array_i,monomer_array_ip4])
     
     file_description = '{}_A3={}_R3={}_R4={}'.format(monomer_name,round(A3,2),round(R3,2),round(R4,2))
     line_list_dimer_p1 = get_xyzR_lines(dimer_array_p1,file_description+'_p1')
@@ -220,21 +220,21 @@ def make_gjf_xyz(auto_dir,monomer_name,params_dict,isInterlayer):
     line_list_dimer_t2 = get_xyzR_lines(dimer_array_t2,file_description+'_t2')
     line_list_dimer_t3 = get_xyzR_lines(dimer_array_t3,file_description+'_t3')
     line_list_dimer_t4 = get_xyzR_lines(dimer_array_t4,file_description+'_t4')
-    line_list_dimer_i0 = get_xyzR_lines(dimer_array_i0,file_description+'_i0')
-    line_list_dimer_ip1 = get_xyzR_lines(dimer_array_ip1,file_description+'_ip1')
-    line_list_dimer_ip2 = get_xyzR_lines(dimer_array_ip2,file_description+'_ip2')
-    line_list_dimer_ip3 = get_xyzR_lines(dimer_array_ip3,file_description+'_ip3')
-    line_list_dimer_ip4 = get_xyzR_lines(dimer_array_ip4,file_description+'_ip4')
+    #line_list_dimer_i0 = get_xyzR_lines(dimer_array_i0,file_description+'_i0')
+    #line_list_dimer_ip1 = get_xyzR_lines(dimer_array_ip1,file_description+'_ip1')
+    #line_list_dimer_ip2 = get_xyzR_lines(dimer_array_ip2,file_description+'_ip2')
+    #line_list_dimer_ip3 = get_xyzR_lines(dimer_array_ip3,file_description+'_ip3')
+    #line_list_dimer_ip4 = get_xyzR_lines(dimer_array_ip4,file_description+'_ip4')
     
-    line_list_dimer_it1 = get_xyzR_lines(dimer_array_it1,file_description+'_it1')
-    line_list_dimer_it2 = get_xyzR_lines(dimer_array_it2,file_description+'_it2')
-    line_list_dimer_it3 = get_xyzR_lines(dimer_array_it3,file_description+'_it3')
-    line_list_dimer_it4 = get_xyzR_lines(dimer_array_it4,file_description+'_it4')
+    #line_list_dimer_it1 = get_xyzR_lines(dimer_array_it1,file_description+'_it1')
+    #line_list_dimer_it2 = get_xyzR_lines(dimer_array_it2,file_description+'_it2')
+    #line_list_dimer_it3 = get_xyzR_lines(dimer_array_it3,file_description+'_it3')
+    #line_list_dimer_it4 = get_xyzR_lines(dimer_array_it4,file_description+'_it4')
 
     if monomer_name in MONOMER_LIST and not(isInterlayer):##隣接6分子について対称性より3分子でエネルギー計算
         gij_xyz_lines = ['$ RunGauss\n'] + line_list_dimer_t1 + ['\n\n--Link1--\n'] + line_list_dimer_t2 + ['\n\n--Link1--\n'] + line_list_dimer_p1 + ['\n\n--Link1--\n']  + ['\n\n\n']##+ line_list_dimer_p2
-    elif monomer_name in MONOMER_LIST and isInterlayer:
-        gij_xyz_lines = ['$ RunGauss\n'] + line_list_dimer_i0 + ['\n\n--Link1--\n'] + line_list_dimer_ip1+ ['\n\n--Link1--\n'] + line_list_dimer_ip2+ ['\n\n--Link1--\n'] + line_list_dimer_ip3+ ['\n\n--Link1--\n'] + line_list_dimer_ip4+ ['\n\n--Link1--\n'] + line_list_dimer_it1 + ['\n\n--Link1--\n'] + line_list_dimer_it2 + ['\n\n--Link1--\n'] + line_list_dimer_it3 + ['\n\n--Link1--\n'] + line_list_dimer_it4 + ['\n\n\n']##2層目9分子
+    #elif monomer_name in MONOMER_LIST and isInterlayer:
+    #    #gij_xyz_lines = ['$ RunGauss\n'] + line_list_dimer_i0 + ['\n\n--Link1--\n'] + line_list_dimer_ip1+ ['\n\n--Link1--\n'] + line_list_dimer_ip2+ ['\n\n--Link1--\n'] + line_list_dimer_ip3+ ['\n\n--Link1--\n'] + line_list_dimer_ip4+ ['\n\n--Link1--\n'] + line_list_dimer_it1 + ['\n\n--Link1--\n'] + line_list_dimer_it2 + ['\n\n--Link1--\n'] + line_list_dimer_it3 + ['\n\n--Link1--\n'] + line_list_dimer_it4 + ['\n\n\n']##2層目9分子
     elif monomer_name=='mono-C9-BTBT':##tshaped ４分子を全て計算
         gij_xyz_lines = ['$ RunGauss\n'] + line_list_dimer_p1 + ['\n\n--Link1--\n'] + line_list_dimer_t1 + ['\n\n--Link1--\n'] + line_list_dimer_t2 + ['\n\n--Link1--\n'] + line_list_dimer_t3 + ['\n\n--Link1--\n'] + line_list_dimer_t4 + ['\n\n\n']
     
