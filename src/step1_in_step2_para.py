@@ -58,7 +58,7 @@ def init_process(args):##使わない
     
     auto_csv_path = os.path.join(auto_dir,'step1.csv')
     if not os.path.exists(auto_csv_path):        
-        df_E_init = pd.DataFrame(columns = ['a','b','theta','R3','R4','E','E_p','E_t1','Et2','machine_type','status','file_name'])##隣接6分子
+        df_E_init = pd.DataFrame(columns = ['a','b','theta','R3','R4','E','E_p','E_t1','E_t2','machine_type','status','file_name'])##隣接6分子
     else:
         df_E_init = pd.read_csv(auto_csv_path)
         df_E_init = df_E_init[df_E_init['status']!='InProgress']
@@ -75,7 +75,7 @@ def main_process(args):
     os.makedirs(os.path.join(auto_dir,'gaussview'), exist_ok=True)
     auto_csv_path = os.path.join(auto_dir,'step1.csv')
     if not os.path.exists(auto_csv_path):        
-        df_E_init = pd.DataFrame(columns = ['a','b','theta','R3','R4','E','E_p','E_t1','Et2','machine_type','status','file_name'])##隣接6分子 長軸がずれた系での面内構造最適化
+        df_E_init = pd.DataFrame(columns = ['a','b','theta','R3','R4','E','E_p','E_t1','E_t2','machine_type','status','file_name'])##隣接6分子 長軸がずれた系での面内構造最適化
         df_E_init.to_csv(auto_csv_path,index=False)
 
     os.chdir(os.path.join(args.auto_dir,'gaussian'))
@@ -91,7 +91,7 @@ def listen(auto_dir,monomer_name,num_nodes,isTest):##args自体を引数に取�
     df_queue = df_E.loc[df_E['status']=='InProgress',['machine_type','file_name']]
     machine_type_list = df_queue['machine_type'].values.tolist()
     len_queue = len(df_queue)
-    maxnum_machine2 = 2#int(num_nodes/2) ##多分俺のために空けていてくださったので2 3にする
+    maxnum_machine2 = 1#int(num_nodes/2) ##多分俺のために空けていてくださったので2 3にする
     
     for idx,row in zip(df_queue.index,df_queue.values):
         machine_type,file_name = row
